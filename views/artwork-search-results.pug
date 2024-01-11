@@ -1,0 +1,15 @@
+extends home.pug
+
+block content
+    h2 Search Results
+    if searchResults.length > 0
+        div#searchResultsContainer
+            each artwork in searchResults
+                div.artwork
+                    a(href=`/${userId}/artworks/${artwork._id}`)
+                        img(src=artwork.Poster alt=artwork.Title)
+                    a(href=`/${userId}/artworks/${artwork._id}`) #{artwork.Title}
+                      |  | 
+                    a(href=`/${userId}/artists/${artwork.artistUserId}`) #{artwork.Artist}
+    else
+        p No matching search results found.

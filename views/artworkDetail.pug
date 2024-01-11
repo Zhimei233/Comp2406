@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    head
+        title #{artwork.Title}
+        link(rel="stylesheet" href="/style.css")
+        script(src="/artworkDetail.js")
+    body
+        header
+            a(href=`/${userId}/home`) Home
+              |  | 
+            a(href=`/${userId}/profile`) Profile
+
+        main
+            h1 #{artwork.Title}
+            p Artist: 
+                a(href=`/${userId}/artists/${artistUserId}`) #{artwork.Artist}
+            p Year: #{artwork.Year}
+            p Category: 
+                a(href=`/${userId}/artworks?search=${artwork.Category}`) #{artwork.Category}
+            p Medium: #{artwork.Medium}
+            p Description: #{artwork.Description}
+            img(src=artwork.Poster alt="Artwork Image" class="responsive-img")
+
+            h2 Reviews
+            each review in reviews
+                div
+                    p #{review.userName}: #{review.content}
+
+            p Number of Likes: #{likeCount}
+            if !isArtist
+                textarea#reviewContent(name="content" placeholder="Write a review...")
+                button#submitReviewBtn(type="button") Submit Review
+
+                button#likeBtn #{alreadyLiked ? 'Unlike' : 'Like'}
+
+    footer
+        p © Art Gallery

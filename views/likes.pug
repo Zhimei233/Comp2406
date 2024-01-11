@@ -1,0 +1,11 @@
+extends profile.pug
+
+block content
+    h1 Likes
+    if message
+        p= message
+    else
+        ul
+            each like in likes
+                li
+                    a(href=`/${userId}/artworks/${like.artworkId._id}`) #{like.artworkTitle}

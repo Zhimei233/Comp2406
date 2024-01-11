@@ -1,0 +1,11 @@
+extends profile.pug
+
+block content
+    h1 Notifications
+    if message
+        p= message
+    else
+        ul
+            each notification in notifications
+                li= notification.content
+

@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        title Workshops
+        link(rel="stylesheet" href="/style.css")
+    body
+        header
+            // Navigation links
+            a(href=`/${userId}/home`) Home
+              |  | 
+            a(href=`/${userId}/profile`) Profile
+        main
+            if userType == 'Artist'
+                h2 Your Workshops
+                if createdWorkshops.length > 0
+                    each workshop in createdWorkshops
+                        div
+                            h3 #{workshop.title}
+                            p #{workshop.description}
+                else
+                    p You have not created any workshops.
+
+            h2 Registered Workshops
+            if registeredWorkshops.length > 0
+                each workshop in registeredWorkshops
+                    div
+                        a(href=`/${userId}/artists/${workshop.artistId}`)
+                            h3 #{workshop.workshopTitle}
+                        p #{workshop.description}
+                        p Created by: #{workshop.artistName}
+            else
+                p You have not registered for any workshops.

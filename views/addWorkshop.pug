@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+    head
+        title Add Workshop
+        link(rel="stylesheet" href="/style.css")
+        script.
+            var userId = "#{userId}";
+        script(src="/addWorkshop.js") // Link to your JavaScript file for handling form submission
+    body
+        header
+            a(href=`/${userId}/home`) Home
+              |  | 
+            a(href=`/${userId}/profile`) Profile
+        h1 Add Workshop
+        form#addWorkshopForm
+            label(for="title") Title:
+            input#title(type="text" name="title" placeholder="Workshop Title" required)
+
+            label(for="description") Description:
+            textarea#description(name="description" placeholder="Details about the workshop" required)
+
+            button#submitBtn(type="button") Submit Workshop

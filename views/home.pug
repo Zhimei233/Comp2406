@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+    head
+        title Home
+        link(rel="stylesheet" href="/style.css")
+        script.
+            var userId = "#{userId}";
+        script(src="/home.js")
+    body
+        header
+            a(href=`/${userId}/home`) Home
+              |  | 
+            a(href=`/${userId}/profile`) Profile
+        h1 Art Gallery
+        input#searchInput(type="text" placeholder="Search artworks with Title/Artist/Category")
+        button#searchButton(type="button") Search
+        div#artworksContainer
+            block content
+                each artwork in artworks
+                    div.artwork
+                        a(href=`/${userId}/artworks/${artwork._id}`)
+                            img(src=artwork.Poster alt=artwork.Title)
+                        a(href=`/${userId}/artworks/${artwork._id}`) #{artwork.Title}
+                          |  | 
+                        if artwork.artistUserId
+                            a(href=`/${userId}/artists/${artwork.artistUserId}`) #{artwork.Artist}

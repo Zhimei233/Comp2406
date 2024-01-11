@@ -1,0 +1,11 @@
+extends profile.pug
+
+block content
+    h1 Follows
+    if message
+        p= message
+    else
+        ul
+            each follow in follows
+                li
+                    a(href=`/${userId}/artists/${follow.artistId._id}`)= follow.artistName

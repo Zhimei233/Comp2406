@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+    head
+        title Add Artwork
+        link(rel="stylesheet" href="/style.css")
+        script.
+            var userId = "#{userId}";
+            var userType = "#{userType}";
+        script(src="/addArtwork.js") // Link to your JavaScript file for handling form submission
+    body
+        header
+            a(href=`/${userId}/home`) Home
+              |  | 
+            a(href=`/${userId}/profile`) Profile
+        h1 Add Artwork
+        form#addArtworkForm
+            label(for="title") Title:
+            input#title(type="text" name="title" placeholder="Artwork Title" required)
+            
+            label(for="year") Year:
+            input#year(type="text" name="year" placeholder="Year the artwork was created" required)
+            
+            label(for="category") Category:
+            input#category(type="text" name="category" placeholder="e.g., painting, sculpture, photograph" required)
+            
+            label(for="medium") Medium:
+            input#medium(type="text" name="medium" placeholder="e.g., watercolour, acrylic, wood" required)
+            
+            label(for="description") Description:
+            textarea#description(name="description" placeholder="Extra information about the artwork." required)
+            
+            label(for="poster") Poster URL:
+            input#poster(type="url" name="poster" placeholder="https://hostname/image.jpg" required)
+            
+            button#submitBtn(type="button") Submit Artwork

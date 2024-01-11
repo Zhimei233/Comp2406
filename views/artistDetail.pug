@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+    head
+        title #{artistName}'s Profile
+        link(rel="stylesheet" href="/style.css")
+        script(src="/artistDetail.js")
+    body
+        header
+            a(href=`/${userId}/home`) Home
+              |  | 
+            a(href=`/${userId}/profile`) Profile
+
+        main
+            h1 #{artistName}
+
+            if userId != artistId
+                if isFollowing
+                    button#unfollowButton Unfollow
+                else
+                    button#followButton Follow
+
+            p Total Artworks: #{totalArtworks}
+            p Total Likes: #{totalLikes}
+
+            h2 Workshops
+            if workshops.length > 0
+                each workshop in workshops
+                    div
+                        h3 #{workshop.title}
+                        p #{workshop.description}
+                        if workshop.isRegistered
+                            button(disabled) Registered
+                        else
+                            button.workshop-register-button(data-workshop-id=workshop._id) Register
+            else
+                p No workshops available
+
+            h2 Artworks
+            if artworks.length > 0
+                each artwork in artworks
+                    div
+                        a(href=`/${userId}/artworks/${artwork._id}`)
+                            img(src=artwork.poster alt=artwork.title class="responsive-img")
+                            h4 #{artwork.title}
+            else
+                p No artworks available

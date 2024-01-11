@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        title User Profile
+        link(rel="stylesheet" href="/style.css")
+        script.
+            var userId = "#{userId}";
+            var userType = "#{userType}";
+        script(src="/profile.js")
+    body
+        header
+            a(href=`/${userId}/home`) Home
+              |  | 
+            a(href=`/${userId}/profile`) Profile
+              |  | 
+            a(href=`/${userId}/workshops`) Workshop
+            a(href="/logout", style="float: right;") Logout
+        button#accountType Change Account Type
+        
+        div#profileContainer
+            h1 #{username}
+            
+            div#buttons
+                button#notifications Notifications
+                button#reviews Reviews
+                button#likes Likes
+                button#follows Follows
+                if userType == 'Artist'
+                    button#addArtwork Add Artwork
+                    button#addWorkshop Add Workshop
+        block content
+

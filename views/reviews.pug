@@ -1,0 +1,14 @@
+extends profile.pug
+
+block content
+    h1 Reviews
+    if message
+        p= message
+    else
+        ul
+            each review in reviews
+                li
+                    p 
+                        a.artwork-link(href=`#${review.artworkId}`) #{review.artworkTitle} 
+                        | - #{review.content}
+                    button(onclick=`deleteReview('${review._id}')`) Delete

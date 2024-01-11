@@ -1,0 +1,96 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3; /* Light background */
+    color: #333; /* Dark text for readability */
+}
+
+header, main, footer {
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Navigation Links */
+header a {
+    margin-right: 10px;
+    color: #0077cc;
+    text-decoration: none;
+}
+
+/* Titles and Headings */
+h1, h2, h3 {
+    color: #6b8e23;
+}
+
+/* Forms and Inputs */
+input[type=text], input[type=password], input[type=url], textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Artwork and Workshop Sections */
+.artwork img, .workshop img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.artwork, .workshop {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    header, main, footer {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .artwork img, .workshop img {
+        width: 100%;
+    }
+}
+
+#profileContainer {
+    text-align: center; /* Center aligns all content within the container */
+    margin-bottom: 20px;
+}
+
+#buttons {
+    display: flex; 
+    justify-content: center; /* Center the buttons horizontally */
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line on smaller screens */
+    gap: 5%; /* Add some space between buttons */
+}
+
+#buttons button {
+    margin-bottom: 0; /* Remove the bottom margin */
+}
+
+.responsive-img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+}
+
